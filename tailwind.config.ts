@@ -8,14 +8,17 @@ const config: Config = {
   ],
   theme: {
     fontSize: {
+      'm-xs': '0.5rem',
       'm-sm': '0.75rem',
       'm-base': '0.875rem',
       'm-lg': '1.375rem',
 
+      't-xs': '0.75rem',
       't-sm': '0.875rem',
       't-base': '1rem',
       't-lg': '2rem',
 
+      'd-xs': '0.75rem',
       'd-sm': '0.875rem',
       'd-base': '1rem',
       'd-lg': '2.5rem',

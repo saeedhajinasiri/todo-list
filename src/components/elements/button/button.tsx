@@ -48,7 +48,7 @@ export const Button = (props: ButtonProps) => {
       TYPE[fontType],
       ROUNDED[rounded],
       SIZES[size],
-      disabled ? `${DISABLED_VARIANTS[variant]} cursor-not-allowed !text-control-300` : COLOR_VARIANTS({ color: color, variant: variant }),
+      disabled ? `${DISABLED_VARIANTS[variant]} cursor-not-allowed !text-white` : COLOR_VARIANTS({ color: color, variant: variant }),
       SHAPES({ shape: shape, size: size }),
       className,
     ),

@@ -36,7 +36,7 @@ export interface TextPropsColorOverrides {
 }
 
 export type Variants = 'p' | 'body' | 'caption' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'li'
-export type Typography = 'small' | 'base' | 'large' | 'inherit'
+export type Typography = 'tiny' | 'small' | 'base' | 'large' | 'inherit'
 export type TextColors = Colors | 'grey.light' | 'grey' | 'grey.dark' | 'white' | 'black'
 export type Align = 'right' | 'left' | 'center' | 'justify' | 'start' | 'end' | 'inherit'
 export type Types = 'medium' | 'bold' | 'light' | 'regular'

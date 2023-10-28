@@ -1,27 +1,32 @@
 import React from 'react';
-import { Button, Div, Text } from '@/components/elements';
+import { Div, Text } from '@/components/elements';
 import TodoItem from '@/components/modules/todo-item/todo-item';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/root-reducer';
 
 const TodoList = () => {
-  return (
-    <Div className={'flex-col shadow-lg'}>
-      <Div className={'flex-col bg-white w-full rounded-t-lg'}>
-        <TodoItem isCompleted={true}/>
-        <TodoItem/>
-        <TodoItem/>
-        <TodoItem/>
-        <TodoItem/>
-      </Div>
+  const { lists } = useSelector((state: RootState) => state.todo);
+  const listArray = lists && Object.values(lists);
 
-      <Div className={'justify-between items-center h-10 md:h-14 flex-wrap bg-white rounded-b-lg'}>
-        <Text align={'left'} color={'gray'} className={'w-28 order-1 ml-3 md:ml-6'} typography={'small'}>5 items left</Text>
-        <Button size={'small'} className={'w-28 !px-0 order-3 mr-3 md:mr-6'} color={'gray'} variant={'text'}>Clear Completed</Button>
-        <Div className={'gap-5 grow justify-center order-4 md:order-2 h-12 mt-4 md:mt-0 bg-white rounded-lg items-center'}>
-          <Button size={'small'} className={'!p-0'} color={'primary'} variant={'text'}>All</Button>
-          <Button size={'small'} className={'!p-0'} color={'gray'} variant={'text'}>Active</Button>
-          <Button size={'small'} className={'!p-0'} color={'gray'} variant={'text'}>Completed</Button>
-        </Div>
-      </Div>
+  if (listArray && listArray.length > 0) {
+    return (
+      <>
+        {listArray.map((item: any) => (
+          <TodoItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            description={item.description}
+            isCompleted={item.isCompleted}
+          />
+        ))}
+      </>
+    );
+  }
+
+  return (
+    <Div className={'min-h-[64px] items-center p-3 md:px-6 md:py-4'}>
+      <Text typography={'small'}>You don`t Have any todo lists. Excellent!</Text>
     </Div>
   );
 };

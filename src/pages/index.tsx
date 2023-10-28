@@ -1,9 +1,8 @@
-'use client';
-
 import React from 'react';
 import { Div, Text } from '@/components/elements';
 import TodoForm from '@/components/modules/todo-form';
 import TodoList from '@/components/modules/todo-list';
+import TodoActions from '@/components/modules/todo-actions/todo-actions';
 
 export default function Home() {
   return (
@@ -12,7 +11,12 @@ export default function Home() {
         <Text align={'left'} type={'bold'} typography={'large'} color={'white'}>TODO</Text>
         <TodoForm/>
 
-        <TodoList/>
+        <Div className={'flex-col shadow-lg'}>
+          <Div className={'flex-col bg-white w-full rounded-t-lg'}>
+            <TodoList/>
+          </Div>
+          <TodoActions/>
+        </Div>
       </Div>
 
     </main>
