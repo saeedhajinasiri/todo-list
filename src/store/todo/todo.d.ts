@@ -1,6 +1,6 @@
 export interface TodoProps {
-  lists: Object<TodoItem>
-  filteredList: Object<TodoItem>
+  lists: Array<TodoItem>
+  filteredList: Array<TodoItem>
   filterType: 'all' | 'active' | 'isCompleted',
 }
 

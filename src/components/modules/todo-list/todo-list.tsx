@@ -6,12 +6,11 @@ import { RootState } from '@/store/root-reducer';
 
 const TodoList = () => {
   const { filteredList } = useSelector((state: RootState) => state.todo);
-  const listArray = filteredList && Object.values(filteredList);
 
-  if (listArray && listArray.length > 0) {
+  if (filteredList && filteredList.length > 0) {
     return (
       <>
-        {listArray.map((item: any) => (
+        {filteredList.map((item: any) => (
           <TodoItem
             key={item.id}
             id={item.id}

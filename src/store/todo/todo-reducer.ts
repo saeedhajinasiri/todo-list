@@ -1,11 +1,11 @@
 import { TodoActionTypes } from './todo-action';
 import saveToLocal from '@/utils/storage/save-to-local';
 import getFromLocal from '@/utils/storage/get-from-local';
-import { TodoProps } from '@/store/todo/todo';
+import { TodoItem, TodoProps } from '@/store/todo/todo';
 
 export const initialState: TodoProps = {
-  lists: {},
-  filteredList: {},
+  lists: [],
+  filteredList: [],
   filterType: 'all',
 };
 
@@ -16,18 +16,18 @@ function todoReducer(state = initialState, action: any) {
       return {
         ...state,
         filterType: 'all',
-        lists: todoList ? JSON.parse(todoList) : {},
-        filteredList: todoList ? JSON.parse(todoList) : {},
+        lists: todoList ? JSON.parse(todoList) : [],
+        filteredList: todoList ? JSON.parse(todoList) : [],
       };
 
     case TodoActionTypes.ADD_TODO_ITEM:
       const timeStamp = (new Date()).getTime();
-      const newList = Object.assign({}, state.lists, {
-        [timeStamp]: {
-          id: timeStamp,
-          title: action?.data?.title,
-          description: action?.data?.description,
-        },
+      const newList = state.lists;
+      newList.push({
+        id: timeStamp.toString(),
+        title: action?.data?.title,
+        description: action?.data?.description,
+        isCompleted: false,
       });
 
       saveToLocal('todo-list', JSON.stringify(newList));
@@ -39,13 +39,9 @@ function todoReducer(state = initialState, action: any) {
       };
 
     case TodoActionTypes.HANDLE_IS_COMPLETED:
-      const targetTodo = state.lists[action?.data?.id];
-      const isCompletedNewList = Object.assign({}, state.lists, {
-        [action?.data?.id.toString()]: {
-          ...targetTodo,
-          isCompleted: !targetTodo?.isCompleted,
-        },
-      });
+      const isCompletedNewList = state.lists;
+      const targetTodo = isCompletedNewList.findIndex((item: TodoItem) => item.id === action?.data?.id);
+      isCompletedNewList[targetTodo]['isCompleted'] = !isCompletedNewList[targetTodo]['isCompleted'];
 
       saveToLocal('todo-list', JSON.stringify(isCompletedNewList));
       return {
@@ -56,15 +52,16 @@ function todoReducer(state = initialState, action: any) {
       };
 
     case TodoActionTypes.HANDLE_REMOVE:
-      if (state.lists[action?.data?.id]) {
-        delete state.lists[action?.data?.id];
-      }
+      const deletedNewList = state.lists;
+      const targetDeleteIndexTodo = deletedNewList.findIndex((item: TodoItem) => item.id === action?.data?.id);
+      deletedNewList.splice(targetDeleteIndexTodo, 1);
 
       saveToLocal('todo-list', JSON.stringify(state.lists));
       return {
         ...state,
         filterType: 'all',
-        filteredList: state.lists,
+        lists: deletedNewList,
+        filteredList: deletedNewList,
       };
 
     case TodoActionTypes.HANDLE_ALL_FILTERS:
@@ -78,18 +75,18 @@ function todoReducer(state = initialState, action: any) {
       return {
         ...state,
         filterType: 'active',
-        filteredList: Object.values(state.lists).filter((item: any) => !item.isCompleted),
+        filteredList: state.lists.filter((item: any) => !item.isCompleted),
       };
 
     case TodoActionTypes.HANDLE_IS_COMPLETED_FILTERS:
       return {
         ...state,
         filterType: 'isCompleted',
-        filteredList: Object.values(state.lists).filter((item: any) => item.isCompleted),
+        filteredList: state.lists.filter((item: any) => item.isCompleted),
       };
 
     case TodoActionTypes.HANDLE_CLEAR_COMPLETED:
-      const clearCompleted = Object.values(state.lists).filter((item: any) => !item.isCompleted);
+      const clearCompleted = state.lists.filter((item: any) => !item.isCompleted);
 
       saveToLocal('todo-list', JSON.stringify(clearCompleted));
       return {
