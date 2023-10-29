@@ -1,5 +1,7 @@
 export interface TodoProps {
   lists: Object<TodoItem>
+  filteredList: Object<TodoItem>
+  filterType: 'all' | 'active' | 'isCompleted',
 }
 
 export interface TodoItem {

@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/store/root-reducer';
 
 const TodoList = () => {
-  const { lists } = useSelector((state: RootState) => state.todo);
-  const listArray = lists && Object.values(lists);
+  const { filteredList } = useSelector((state: RootState) => state.todo);
+  const listArray = filteredList && Object.values(filteredList);
 
   if (listArray && listArray.length > 0) {
     return (

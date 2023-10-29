@@ -5,6 +5,8 @@ import { TodoProps } from '@/store/todo/todo';
 
 export const initialState: TodoProps = {
   lists: {},
+  filteredList: {},
+  filterType: 'all',
 };
 
 function todoReducer(state = initialState, action: any) {
@@ -13,7 +15,9 @@ function todoReducer(state = initialState, action: any) {
       const todoList = getFromLocal('todo-list');
       return {
         ...state,
+        filterType: 'all',
         lists: todoList ? JSON.parse(todoList) : {},
+        filteredList: todoList ? JSON.parse(todoList) : {},
       };
 
     case TodoActionTypes.ADD_TODO_ITEM:
@@ -29,7 +33,9 @@ function todoReducer(state = initialState, action: any) {
       saveToLocal('todo-list', JSON.stringify(newList));
       return {
         ...state,
+        filterType: 'all',
         lists: newList,
+        filteredList: newList,
       };
 
     case TodoActionTypes.HANDLE_IS_COMPLETED:
@@ -44,7 +50,9 @@ function todoReducer(state = initialState, action: any) {
       saveToLocal('todo-list', JSON.stringify(isCompletedNewList));
       return {
         ...state,
+        filterType: 'all',
         lists: isCompletedNewList,
+        filteredList: isCompletedNewList,
       };
 
     case TodoActionTypes.HANDLE_REMOVE:
@@ -55,6 +63,40 @@ function todoReducer(state = initialState, action: any) {
       saveToLocal('todo-list', JSON.stringify(state.lists));
       return {
         ...state,
+        filterType: 'all',
+        filteredList: state.lists,
+      };
+
+    case TodoActionTypes.HANDLE_ALL_FILTERS:
+      return {
+        ...state,
+        filterType: 'all',
+        filteredList: state.lists,
+      };
+
+    case TodoActionTypes.HANDLE_ACTIVE_FILTERS:
+      return {
+        ...state,
+        filterType: 'active',
+        filteredList: Object.values(state.lists).filter((item: any) => !item.isCompleted),
+      };
+
+    case TodoActionTypes.HANDLE_IS_COMPLETED_FILTERS:
+      return {
+        ...state,
+        filterType: 'isCompleted',
+        filteredList: Object.values(state.lists).filter((item: any) => item.isCompleted),
+      };
+
+    case TodoActionTypes.HANDLE_CLEAR_COMPLETED:
+      const clearCompleted = Object.values(state.lists).filter((item: any) => !item.isCompleted);
+
+      saveToLocal('todo-list', JSON.stringify(clearCompleted));
+      return {
+        ...state,
+        filterType: 'all',
+        lists: clearCompleted,
+        filteredList: clearCompleted,
       };
 
     default:
