@@ -1,6 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Installation
 
-## Getting Started
+Please be careful to follow these steps for installing:
+
+First of all, you must ensure that your node.js version is at least 16 and above.
+
+Then run this command, to install dependencies:
+
+```bash
+npm install
+```
+
+## Running the app
 
 First, run the development server:
 
@@ -16,21 +26,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Then you can add your first todo task to your todo list. So it will be saved on your local storage and whenever you go back to your todo app, you can see it on your list.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If your task get done, you can click on the checkbox to mark it as a completed task.
 
-## Learn More
+Or if you regret to do it, you can delete it, with the delete button on the right side.
 
-To learn more about Next.js, take a look at the following resources:
+Also you can see just your active tasks, or completed task with the filters button on the bottom of page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Description
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This application are designed based on this <a href='https://www.figma.com/file/vFEdFs2T0UOi4tmulkh8JQ/Hajinasiri---todo-app?type=design&node-id=0-1&mode=design&t=jcxUOL2pJtHAOi5u-0' target='_blank'>figma design</a> which is developed and extended by myself.
 
-## Deploy on Vercel
+#### Desktop
+<img alt="desktop" src="./public/Desktop.png">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Mobile
+<img alt="desktop" src="./public/Mobile.png" height="500px">
