@@ -39,7 +39,7 @@ Also you can see just your active tasks, or completed task with the filters butt
 This application are designed based on this <a href='https://www.figma.com/file/vFEdFs2T0UOi4tmulkh8JQ/Hajinasiri---todo-app?type=design&node-id=0-1&mode=design&t=jcxUOL2pJtHAOi5u-0' target='_blank'>figma design</a> which is developed and extended by myself.
 
 #### Desktop
-<img alt="desktop" src="./public/Desktop.png">
+<img alt="desktop" src="./public/desktop.png">
 
 #### Mobile
-<img alt="desktop" src="./public/Mobile.png" height="500px">
+<img alt="desktop" src="./public/mobile.png" width="300px">
