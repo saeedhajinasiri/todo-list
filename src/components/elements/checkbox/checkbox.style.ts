@@ -1,39 +1,10 @@
 export const COLORS = {
   primary: 'border border-grey-400 checked:bg-primary checked:border-primary hover:bg-primary-dark hover:border-primary-dark active:border-primary-light active:bg-primary-light',
-  info: 'border border-grey-400 checked:bg-info checked:border-info hover:bg-info-light hover:border-info-dark active:border-info-light',
-  danger: 'border border-grey-400 checked:bg-danger checked:border-danger hover:bg-danger-light hover:border-danger-dark active:border-danger-light',
-  warning: 'border border-grey-400 checked:bg-warning checked:border-warning hover:bg-warning-light hover:border-warning-dark active:border-warning-light',
-  secondary: 'border border-grey-400 checked:bg-secondary checked:border-secondary hover:bg-secondary-light hover:border-secondary-dark active:border-secondary-light',
-  control: 'border border-grey-400 checked:bg-control checked:border-control hover:bg-control-light hover:border-control-dark active:border-control-light',
-  tertiary: 'border border-grey-400 checked:bg-tertiary checked:border-tertiary hover:bg-tertiary-light hover:border-tertiary-dark active:border-tertiary-light',
-  success: 'border border-grey-400 checked:bg-success checked:border-success hover:bg-success-light hover:border-success-dark active:border-success-light',
-  inherit: 'border-transparent hover:border-transparent',
-  slate: 'border border-grey-400 checked:bg-slate-500 checked:border-slate-500 hover:bg-slate-300 hover:border-slate-700 active:border-slate-300',
   gray: 'border border-grey-400 checked:bg-gray-500 checked:border-gray-500 hover:bg-gray-300 hover:border-gray-700 active:border-gray-300',
-  zinc: 'border border-grey-400 checked:bg-zinc-500 checked:border-zinc-500 hover:bg-zinc-300 hover:border-zinc-700 active:border-zinc-300',
-  neutral: 'border border-grey-400 checked:bg-neutral-500 checked:border-neutral-500 hover:bg-neutral-300 hover:border-neutral-700 active:border-neutral-300',
-  stone: 'border border-grey-400 checked:bg-stone-500 checked:border-stone-500 hover:bg-stone-300 hover:border-stone-700 active:border-stone-300',
-  red: 'border border-grey-400 checked:bg-red-500 checked:border-red-500 hover:bg-red-300 hover:border-red-700 active:border-red-300',
-  orange: 'border border-grey-400 checked:bg-orange-500 checked:border-orange-500 hover:bg-orange-300 hover:border-orange-700 active:border-orange-300',
-  amber: 'border border-grey-400 checked:bg-amber-500 checked:border-amber-500 hover:bg-amber-300 hover:border-amber-700 active:border-amber-300',
-  yellow: 'border border-grey-400 checked:bg-yellow-500 checked:border-yellow-500 hover:bg-yellow-300 hover:border-yellow-700 active:border-yellow-300',
-  lime: 'border border-grey-400 checked:bg-lime-500 checked:border-lime-500 hover:bg-lime-300 hover:border-lime-700 active:border-lime-300',
-  green: 'border border-grey-400 checked:bg-green-500 checked:border-green-500 hover:bg-green-300 hover:border-green-700 active:border-green-300',
-  emerald: 'border border-grey-400 checked:bg-emerald-500 checked:border-emerald-500 hover:bg-emerald-300 hover:border-emerald-700 active:border-emerald-300',
-  teal: 'border border-grey-400 checked:bg-teal-500 checked:border-teal-500 hover:bg-teal-300 hover:border-teal-700 active:border-teal-300',
-  cyan: 'border border-grey-400 checked:bg-cyan-500 checked:border-cyan-500 hover:bg-cyan-300 hover:border-cyan-700 active:border-cyan-300',
-  sky: 'border border-grey-400 checked:bg-sky-500 checked:border-sky-500 hover:bg-sky-300 hover:border-sky-700 active:border-sky-300',
-  blue: 'border border-grey-400 checked:bg-blue-500 checked:border-blue-500 hover:bg-blue-300 hover:border-blue-700 active:border-blue-300',
-  indigo: 'border border-grey-400 checked:bg-indigo-500 checked:border-indigo-500 hover:bg-indigo-300 hover:border-indigo-700 active:border-indigo-300',
-  violet: 'border border-grey-400 checked:bg-violet-500 checked:border-violet-500 hover:bg-violet-300 hover:border-violet-700 active:border-violet-300',
-  purple: 'border border-grey-400 checked:bg-purple-500 checked:border-purple-500 hover:bg-purple-300 hover:border-purple-700 active:border-purple-300',
-  fuchsia: 'border border-grey-400 checked:bg-fuchsia-500 checked:border-fuchsia-500 hover:bg-fuchsia-300 hover:border-fuchsia-700 active:border-fuchsia-300',
-  pink: 'border border-grey-400 checked:bg-pink-500 checked:border-pink-500 hover:bg-pink-300 hover:border-pink-700 active:border-pink-300',
-  rose: 'border border-grey-400 checked:bg-rose-500 checked:border-rose-500 hover:bg-rose-300 hover:border-rose-700 active:border-rose-300',
+  inherit: 'border-transparent hover:border-transparent',
 };
 
 export const SIZES = {
-  huge: 'h-7 w-7 md:h-7',
   large: 'h-6 w-6 md:h-6',
   medium: 'h-5 w-5 md:h-5',
   small: 'h-4 w-4 md:h-4',
@@ -41,7 +12,6 @@ export const SIZES = {
 };
 
 export const CHECK_SIZES = {
-  huge: 'h-6 w-6 md:h-6',
   large: 'h-5 w-5 md:h-5',
   medium: 'h-4 w-4 md:h-4',
   small: 'h-3 w-3 md:h-3',

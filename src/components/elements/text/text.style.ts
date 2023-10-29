@@ -1,4 +1,5 @@
 export const TYPOGRAPHY = {
+  tiny: 'text-m-xs sm:text-t-xs md:text-d-xs leading-m-xs sm:leading-t-xs md:leading-d-xs',
   small: 'text-m-sm sm:text-t-sm md:text-d-sm leading-m-sm sm:leading-t-sm md:leading-d-sm',
   base: 'text-m-base sm:text-t-base md:text-d-base leading-m-base sm:leading-t-base md:leading-d-base',
   large: 'text-m-lg sm:text-t-lg md:text-d-lg leading-m-lg sm:leading-t-lg md:leading-d-lg',

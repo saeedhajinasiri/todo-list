@@ -1,9 +1,8 @@
 import { ChangeEvent } from 'react';
-import { Colors, OverridableStringUnion } from '@/utils/types';
+import { Colors } from '@/utils/types';
 
 export interface CheckboxProps {
-  color?: OverridableStringUnion<Colors,
-    CheckboxPropsColorOverrides>;
+  color?: Colors;
 
   className?: string
 
@@ -13,10 +12,6 @@ export interface CheckboxProps {
 
   disabled?: boolean
 
-  size?: 'small' | 'medium' | 'large' | 'tiny' | 'huge'
-}
-
-export interface CheckboxPropsColorOverrides {
-
+  size?: 'small' | 'medium' | 'large' | 'tiny'
 }
 

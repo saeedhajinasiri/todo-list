@@ -1,5 +1,5 @@
 import { ReactNode, Ref } from 'react';
-import { Colors, OverridableStringUnion, Rounded, Sizes } from '@/utils/types';
+import { Colors, Rounded, Sizes } from '@/utils/types';
 
 export interface TextFieldProps {
   variant?: 'outlined' | 'filled'
@@ -10,12 +10,9 @@ export interface TextFieldProps {
 
   size?: Sizes
 
-  color?: OverridableStringUnion<Colors,
-    TextFieldPropsColorOverrides>;
+  color?: Colors;
 
   rounded?: Rounded
-
-  error?: boolean
 
   helperText?: string | undefined
 
@@ -60,9 +57,5 @@ export interface TextFieldProps {
   label?: string
 
   hasCounter?: boolean
-}
-
-export interface TextFieldPropsColorOverrides {
-
 }
 

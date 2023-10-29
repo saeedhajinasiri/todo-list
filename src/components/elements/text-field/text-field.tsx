@@ -11,7 +11,6 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
     placeholder,
     size = 'medium',
     color = 'primary',
-    error = false,
     disabled = false,
     rounded = 'medium',
     multiline = false,
@@ -50,7 +49,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
     ROUNDED[rounded],
     VARIANTS[variant],
     PLACEHOLDER_POSITION[placeholderPosition],
-    disabled ? 'border-grey-100 text-grey-100 bg-grey-100 cursor-not-allowed placeholder-shown:border-t-grey-100 placeholder-shown:hover:border-t-grey-100' : error ? 'bg-danger-100 border-danger placeholder-shown:border-t-danger placeholder-shown:hover:border-danger' : `${INPUT_COLORS[color]}`,
+    INPUT_COLORS[color],
     startAdornment ? 'pr-12' : 'px-2',
     endAdornment ? 'pl-12' : 'px-2',
     multiline ? 'pt-2' : '',
@@ -92,8 +91,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
   return (
     <label
       className={classNames(
-        'relative block font-normal',
-        !disabled && error ? 'text-danger' : 'text-grey-400',
+        'relative block font-normal text-grey',
         className
       )}>
       {Component}
@@ -101,9 +99,8 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
         <span className={classNames(
           `flex items-center z-[1] absolute top-0 start-0 cursor-text`,
           LABEL_SIZES[size],
-          error ? 'peer-focus:text-danger before:peer-focus:border-danger after:peer-focus:border-danger peer-focus:peer-placeholder-shown:after:border-danger peer-focus:peer-placeholder-shown:before:border-danger' : LABEL_COLOR[color],
+          LABEL_COLOR[color],
           `transition-all origin-[0]`,
-          disabled ? '!cursor-not-allowed' : '',
           'peer-placeholder-shown:mx-2 mx-2 peer-focus:mx-2',
           variant === 'filled' ? '!bg-transparent' : `translate-y-[-50%] peer-focus:translate-y-[-50%] peer-placeholder-shown:translate-y-0`,
           `bg-white peer-placeholder-shown:bg-transparent peer-focus:bg-white`,
@@ -119,7 +116,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
       {startAdornment ? (
         <div className={classNames(
           `flex w-8 items-center justify-center mx-2 absolute top-0 start-0`,
-          error ? '' : LABEL_COLOR[color],
+          LABEL_COLOR[color],
           SIZES[size],
           startAdornmentClassName,
         )}>
@@ -138,10 +135,10 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
       ) : null}
       {helperText || (maxLength && hasCounter) ? (
         <div className={'flex flex-row justify-between px-3'}>
-          <Text className={'flex flex-row gap-x-2 items-center'} typography={'small'} color={disabled ? 'grey.light' : (error ? 'danger' : 'grey')}>
-            {error ? <NoticeIcon/> : null} {helperText}
+          <Text className={'flex flex-row gap-x-2 items-center'} typography={'small'} color={'grey'}>
+            {helperText}
           </Text>
-          <Text direction={'ltr'} typography={'small'} color={disabled ? 'grey.light' : (error ? 'danger' : 'grey')}>
+          <Text direction={'ltr'} typography={'small'} color={'grey'}>
             {maxLength && hasCounter ? `${count} / ${maxLength}` : null}
           </Text>
         </div>
@@ -151,13 +148,3 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
 });
 
 export default TextField;
-
-const NoticeIcon = () => {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.99992 2.33325C11.4053 2.33325 14.1666 5.09392 14.1666 8.49992C14.1666 11.9053 11.4053 14.6666 7.99992 14.6666C4.59392 14.6666 1.83325 11.9053 1.83325 8.49992C1.83325 5.09392 4.59392 2.33325 7.99992 2.33325Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M7.99865 5.96936V8.91536" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M7.99847 11.0306H8.00518" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  );
-};
